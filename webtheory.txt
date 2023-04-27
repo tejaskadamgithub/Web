@@ -157,6 +157,35 @@ Memory Consumption: Since the SPA can run for a long time sometimes hours at a t
 
 Disabled Javascript: Developers need to chalk out ideas for users to access the information on the website for browsers that have Javascript disabled.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Four Design Essentials of a Web 1.0 Site Include:
+
+Static pages.
+Content is served from the server’s file system.
+Pages built using Server Side Includes or Common Gateway Interface (CGI).
+Frames and Tables are used to position and align the elements on a page.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Five Major Features of Web 2.0:
+
+Free sorting of information, permits users to retrieve and classify the information collectively.
+Dynamic content that is responsive to user input.
+Information flows between the site owner and site users using evaluation & online commenting.
+Developed APIs to allow self-usage, such as by a software application.
+Web access leads to concerns different, from the traditional Internet user base to a wider variety of users\
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main features That can Help us Define Web 3.0:
+
+Semantic Web: The succeeding evolution of the Web involves the Semantic Web. The semantic web improves web technologies in demand to create, share and connect content through search and analysis based on the capability to comprehend the meaning of words, rather than on keywords or numbers.
+Artificial Intelligence: Combining this capability with natural language processing, in Web 3.0, computers can distinguish information like humans to provide faster and more relevant results. They become more intelligent to fulfill the requirements of users.
+3D Graphics: The three-dimensional design is being used widely in websites and services in Web 3.0. Museum guides, computer games, e-commerce, geospatial contexts, etc. are all examples that use 3D graphics.
+Connectivity: With Web 3.0, information is more connected thanks to semantic metadata. As a result, the user experience evolves to another level of connectivity that leverages all the available information.
+Ubiquity: Content is accessible by multiple applications, every device is connected to the web, and the services can be used everywhere.
+DLT and Smart Contracts: With the help of DLT, we can have a virtually impossible-to-hack database from which one can have value to their content and things they can own virtually, this is the technology that enables a trustless society through the integration of smart contracts which does not need to have a middle man to be a guarantor to make that contract occur on certain cause its based on data from that DLT. It’s a powerful tool that can make the world a far better place and generate more opportunities for everyone on the internet.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
