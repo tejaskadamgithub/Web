@@ -1,0 +1,783 @@
+WEb X practical code
+
+1. Small code snippets for programs like Hello World, Calculator using TypeScript.
+
+Code:
+
+const number1:number = parseFloat(prompt('Enter first number: '));
+const number2:number = parseFloat(prompt('Enter second number: '));
+
+
+const operator:string = prompt('Enter operator ( either +, -, * or / ): ');
+
+let result:number;
+
+if (operator == '+') {
+    result = number1 + number2;
+}
+else if (operator == '-') {
+    result = number1 - number2;
+}
+else if (operator == '*') {
+    result = number1 * number2;
+}
+else {
+    result = number1 / number2;
+}
+
+console.log(`${number1} ${operator} ${number2} = ${result}`);
+Index.html code
+
+<html>
+<body>
+<script src="calculator.js">
+</script>
+</body>
+</html>
+
+
+Run index.html on browser and provide the input.
+Output:In web console ,output will appear as 22+ 33 =55
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3-Access Modifiers example using TypeScript
+
+public
+By default, all members of a class in TypeScript are public. All the public members can be accessed anywhere without any restrictions.
+
+class Employee {
+    public empCode: string;
+    empName: string;
+}
+
+
+let emp = new Employee();
+emp.empCode = 123;
+emp.empName = "user1";
+private
+The private access modifier ensures that class members are visible only to that class and are not accessible outside the containing class.
+
+class Employee {
+    private empCode: number;
+    empName: string;
+}
+
+let emp = new Employee();
+emp.empCode = 123; // Compiler Error
+emp.empName = "XY";//OK
+
+
+protected
+
+class Employee {
+    public empName: string;
+    protected empCode: number;
+
+    constructor(name: string, code: number){
+        this.empName = name;
+        this.empCode = code;
+    }
+}
+
+class SalesEmployee extends Employee{
+    private department: string;
+    
+    constructor(name: string, code: number, department: string) {
+        super(name, code);
+        this.department = department;
+    }
+}
+
+let emp = new SalesEmployee("XYZ", 123, "Sales");
+empObj.empCode; //Compiler Error
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Demo of Inheritance in Typescript
+class Person 
+{
+firstName:string;
+lastName:string;
+
+constructor(firstName:string,lastName:string)
+   {
+  this.firstName=firstName;
+  this.lastName=lastName
+   }
+
+displayDetails():string 
+   {
+return(` First Name is ${this.firstName} and Last Name is ${this.lastName} `)
+  }
+
+}
+
+class Manager extends Person
+{
+id:number;
+
+constructor(firstName:string,lastName:string,id:number)
+{
+ super(firstName,lastName)
+  this.id=id
+}
+
+displayFullDetails():string 
+   {
+return(` First Name is ${this.firstName} and Last Name is ${this.lastName} and id ${this.id}`)
+  }
+
+}
+
+
+const person:Manager=new Manager("abc","pqr",100)
+console.log(person.displayFullDetails())
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Expt 3 : Angular Js
+
+Code for Ex1.html 
+
+
+<html>
+<head>
+<script src="angular.min.js"></script> 
+<link href="bootstrap.min.css" rel="stylesheet">
+<script src="app.js"></script>
+</head>
+<body ng-app='MyFirstApp'>
+
+<div ng-controller="MyCtrl">
+
+<input type="text" ng-model="textInput.value">
+{{ textInput.value + 5 }}
+<input type="number" ng-model="numberInput.value">
+{{ numberInput.value + 5 }}
+
+<p>{{value}}</p>
+<p> {{names}}</p>
+
+<div ng-cloak>
+<h1>Hello {{ names }}</h1>
+</div>
+
+<div ng-if="myFunction()">
+<span>Because ng-if is true</span>
+</div>
+
+<ul>
+<li ng-repeat="item in itemCollection">
+{{item.name}}
+</li>
+</ul>
+
+
+<button ng-click="count = count + 1" ng-init="count=0">
+Increment
+</button>
+<span>
+count: {{count}}
+</span>
+
+<button ng-click="count = count - 1" ng-init="count=count">
+Decrement
+</button>
+<span>
+count: {{count}}
+</span>
+
+<input ng-model="list" ng-list="; " ng-trim="false">
+
+</div>
+</body>
+</html>
+
+
+Code for app.js
+
+var app = angular.module('MyFirstApp', []);
+
+app.controller('MyCtrl', function($scope) {
+
+$scope.itemCollection=[{name:'1'},{name:'2'},{name:'3'},{name:'4'}]
+$scope.textInput = {
+value: '5'
+};
+$scope.numberInput = {
+value: 5
+};
+
+$scope.value = "some value";
+$scope.names="Amar Palwankar";
+
+$scope.myFunction = function() {
+var result = false;
+
+
+if($scope.numberInput.value==5)
+{
+result=true
+return result;
+}
+};
+
+
+$scope.list = ['angular', 'is', 'cool!'];
+});
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2-Events and Validations in AngularJS. (Create functions and add events, adding HTML validators, using $valid property of Angular, etc.)
+
+Code for validations.html
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body ng-app='MyFirstApp'>
+<div ng-controller="MyController">
+
+<form name="form" ng-submit="submitForm(form.$valid)" novalidate>
+
+<p>
+	Full Name:<input type="text" name="uname" ng-model='name' maxlength='10' minlength='5' ng-required='true'>
+	<span class='c1' ng-show='form.uname.$error.required'>Name is required </span>
+</p>
+
+<p>
+	Email ID:<input type="email" name="email" ng-model='email' ng-required='true'>
+	<span class='c1' ng-show='form.email.$error.required'>Email is required </span>
+</p>
+
+<p>Select your gender:<input type="radio" name="gender" value="Male" ng-model='g' ng-required='true'>Male 
+	<input type="radio" name="gender" value="Female" ng-model='g' ng-required='true'>Female 
+
+
+<p>
+	<button type="submit" ng-disabled="form.$invalid">Submit</button>
+</p>
+</form>
+<pre>
+<!-- {{form.$error | json}} </pre> -->
+</div>
+</body>
+</html>
+
+Code for app.js
+
+var myApp=angular.module('MyFirstApp',[]);
+
+myApp.controller('MyController',['$scope',function($scope)
+{
+$scope.submitForm=function(isValid)
+{
+	if(isValid)
+	{
+		alert("Data is correct")
+	}
+};
+
+
+}]);
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Expt 4 AJAX
+
+1- Write a JavaScript program for a AJAX.
+
+
+Code for AjaxEx1.html
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>AJAX and JSON</title>
+ <script>
+ window.onload = function(){
+ var xhr = new XMLHttpRequest();
+ xhr.open("GET", "http://172.16.5.154/ajax/employee.json", true);
+ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xhr.send();
+ xhr.onreadystatechange = function(){
+ if (xhr.readyState == 4 && xhr.status == 200)
+ {
+ var output = "";
+ var jsonData = xhr.responseText;
+ var jsObject = JSON.parse(jsonData);
+ for(var i=0;i<jsObject.employees.length;i++)
+ {
+ if (jsObject.employees[i].gender == "F")
+ {
+ output += "<b>Name: </b>" + jsObject.employees[i].name + "<br /><b>Department: </b>" + jsObject.employees[i].department + "<br /><br />";
+ }
+ }
+ document.getElementById("result").innerHTML = output;
+ }
+ }
+ }
+ </script>
+ </head>
+ <body> 
+ <div id="result"></div> 
+ </body>
+</html>
+
+
+Code for  employee.json
+{"employees":[
+ {
+ "id":101,
+ "name":"Uuse1",
+ "department":"Accounts",
+ "grade":"B",
+ "gender":"M"
+ }, 
+ {
+ "id":103,
+ "name":"Usaer2",
+ "department":"Marketing",
+ "grade":"A",
+ "gender":"M"
+ },
+ {
+ "id":104,
+ "name":"User3",
+ "department":"Accounts",
+ "grade":"A",
+ "gender":"F"
+ },
+ {
+ "id":107,
+ "name":"Paul Miller",
+ "department":"Accounts",
+ "grade":"C",
+ "gender":"M"
+ },
+ {
+ "id":108,
+ "name":"Susan Johnson",
+ "department":"Sales",
+ "grade":"B",
+ "gender":"F"
+ },
+ {
+ "id":110,
+ "name":"David Jones",
+ "department":"Accounts",
+ "grade":"C",
+ "gender":"M"
+ },
+ {
+ "id":111,
+ "name":"Nancy White",
+ "department":"Marketing",
+ "grade":"B",
+ "gender":"F"
+ }
+]}
+
+
+Output:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AJAX
+
+2-Write a program to use AJAX for user validation using and to show the result on the same page below the submit button.
+
+
+Code for index.html
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Getting data dynamically</title>
+<script>
+function validateUser() {
+      var cnt=0;
+
+    var request = new XMLHttpRequest();
+     var n=(document.A.sn.value).toUpperCase()
+ 
+    request.open("GET", `http://172.16.5.154:4000/api/getOnlyOne/${n}`,true);
+
+
+   document.getElementById("myText").innerHTML = cnt;
+    request.onreadystatechange = function() {
+      
+        if(this.readyState === 4 && this.status === 200) {
+      
+            var responseJsonObj = JSON.parse(this.responseText);
+             
+      
+            str=""
+	    
+            responseJsonObj.forEach(element => {
+           
+		            cnt=cnt+1
+
+             });
+
+
+               if(cnt==0)
+                  {
+	      str="<b><font color=red>This student doen not exists</font></b>"
+                  }
+               else
+                 {
+                  str="<b><font color=green>हो,हा विध्यार्थी आहे .</font></b>"
+                 }
+  
+            document.getElementById("myText").innerHTML = str;
+
+
+            //alert(str)
+        }
+
+
+    else
+       {
+      document.getElementById("result").innerHTML="Could not get data due to <br/>1-server might not be running <br/> 2- network failure <br/>3. No input "
+        }
+    };
+
+
+    request.send();
+}
+
+
+</script>
+</head>
+<body>
+<form name="A">
+<p><h3>User Validation(Whether students admitted in TE class or Not)</h3></p>
+   <input type="text" autocomplete="off" name="sn" id="search" placeholder="Surname firstname middleName " onkeyup="validateUser()" size=30>
+    <b>Validation Result: <span id="myText"></span></b><br/>
+   <input type="button" value="Submit" onclick="validateUser()">
+    
+  
+
+
+</form>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3-Design and develop small web application using AJAX, HTML and PHP
+Code for index.html
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Ajax </title>
+ <style>
+ #dummy-content
+ {
+ border:2px solid black;
+ width:400px;
+ height:400px;
+ position: fixed;
+ left:50px;
+ top: 30px;
+ border-radius: 10px;
+ padding:5px;
+ background: #ccddff;
+ }
+ #details
+ {
+ border:2px solid black;
+ border-radius: 10px;
+ width:400px;
+ height:200px;
+ position: fixed;
+ left:530px;
+ top:30px;
+ padding:5px;
+ background: #ccebff;
+ }
+ p
+ {
+ text-align: justify;
+ }
+ label
+ {
+ font-size: 23px;
+ }
+ .dropdown
+ {
+ font-size: 20px;
+ border-radius: 5px;
+ }
+ </style>
+ <script>
+ function getDetails()
+ {
+ var xhr = new XMLHttpRequest();
+ var cont = document.getElementById("continents").value;
+ xhr.open("POST", "http://172.16.5.154/ajax/get-countries.php", true);
+ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+
+ xhr.send("continent=" + cont); 
+ xhr.onreadystatechange = function(){
+ if (xhr.readyState == 4 && xhr.status== 200)
+ {
+ document.getElementById("countries").innerHTML = xhr.responseText
+ }
+ }
+ }
+ </script>
+ </head>
+ <body> 
+ <div id="details">
+ <h2>Select a continent from the dropdown:</h2>
+ <label for="continents">Continent:</label>
+ <select id="continents" class="dropdown" onchange="getDetails();">
+ <option selected disabled>Select Continent</option>
+ <option value="asia">Asia</option>
+ <option value="africa">Africa</option>
+ 
+ <option value="europe">Europe</option>
+ <option value="n-america">North America</option>
+ <option value="s-america">South America</option>
+ <option value="australia">Australia</option>
+ </select><br /><br />
+ <label for="contries">Country:</label>
+ <select id="countries" class="dropdown">
+ <option value="">Select Country</option>
+ </select> 
+ </div>
+ </body>
+</html>
+
+
+Code for get-countries.php
+<?php
+$continent = $_REQUEST["continent"];
+$countries = array(
+ "asia" => array("India","China","Iran", "Malaysia", "Singapore"),
+ "africa" => array("Angola", "Cameroon", "Egypt", "Kenya", "Uganda"),
+ 
+ "europe" => array("France", "Germany", "Italy", "Spain", "United Kingdom"),
+ "n-america" => array("Canada", "Cuba", "Jamaica", "Panama", "United States"),
+ "s-america" => array("Argentina", "Brazil", "Colombia", "Peru", "Uruguay"),
+ "australia" => array("Australia", "Fiji", "Kiribati", "New Zealand")
+ );
+if(isset($continent))
+{
+ if(isset($countries[$continent]))
+ {
+ for($i = 0;$i<count($countries[$continent]); $i++)
+ {
+ echo "<option value='" . $countries[$continent][$i] ."'>" . $countries[$continent][$i] . "</option>";
+ }
+ }
+}
+?>
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Expt 5 REST API AND MongoDB
+
+Code for routes.js
+
+const express=require('express');
+const Model=require('../models/models');
+const router=express.Router();
+
+router.get('/getAll',async (req,res) => {
+    //res.send("getting all data");
+
+    try{
+        const data=await Model.find();
+         
+ 
+        res.json(data);
+    }
+    catch(error) {
+         res.status(500).json({message:console.error})
+    }
+
+
+})
+
+
+module.exports=router;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Expt 6 Flask Framework
+
+
+
+Installing virtualenv
+#python3 -m pip install --user virtualenv
+
+
+To create a virtual environment, go to your project’s directory and run venv
+#python3 -m venv env
+
+
+Activating a virtual environment
+#source env/bin/activate
+
+
+Confirm it
+#which python
+  It is in env
+
+
+Installing packages
+#python3 -m pip install requests
+   
+    Or Specific version 
+#python3 -m pip install requests==2.18.4
+
+
+
+For WTForms
+python3 -m pip install WTForms==2.3.3
+
+
+Leaving the virtual environment
+#deactivate
+
+----------------------------------------------------------------------------------
+
+1-Design Feedback Form using Flask.
+	Code for process.py
+
+
+from flask import *
+
+
+app=Flask(__name__)
+
+
+@app.route("/")
+def Form():
+	return render_template("customer.html")
+
+
+@app.route("/process3",methods=['GET','POST'])
+def display():
+	if request.method=="POST":
+		alldata=request.form
+		return render_template("result.html",result=alldata)
+
+
+if __name__=='__main__':
+	app.run(debug=True)
+
+
+Code for  customer.html
+<html>
+<body>
+<h3>Feedback Form </h3>
+<form name="A" method="post" action="http://127.0.0.1:5000/process3">
+
+
+<p> Your Name :<input type="text" name="UserName"> </p>
+<p> Your Email :<input type="email" name="Email"> </p>
+<p> Your Contact :<input type="text" name="Contact"> </p>
+<p> Your Mobile no :<input type="number" name="MobileNo"> </p>
+<br/>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2-Design Weather App using Flask.
+Code for weather.py
+# Python program to find current
+# weather details of any city
+# using openweathermap api
+ 
+# import required modules
+import requests, json
+ 
+# Enter your API key here
+api_key = "17b7453a8a96660330234234"
+ 
+# base_url variable to store url
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
+ 
+# Give city name
+city_name = input("Enter city name : ")
+ 
+# complete_url variable to store
+# complete url address
+complete_url = base_url + "appid=" + api_key + "&q=" + city_name
+ 
+# get method of requests module
+# return response object
+response = requests.get(complete_url)
+ 
+# json method of response object
+# convert json format data into
+# python format data
+x = response.json()
+ 
+# Now x contains list of nested dictionaries
+# Check the value of "cod" key is equal to
+# "404", means city is found otherwise,
+# city is not found
+if x["cod"] != "404":
+ 
+    # store the value of "main"
+    # key in variable y
+    y = x["main"]
+    sysk=x["sys"]
+    CountryN=sysk["country"]
+    Sunrise=sysk["sunrise"]
+ 
+    # store the value corresponding
+    # to the "temp" key of y
+    current_temperature = y["temp"]
+ 
+    # store the value corresponding
+    # to the "pressure" key of y
+    current_pressure = y["pressure"]
+ 
+    # store the value corresponding
+    # to the "humidity" key of y
+    current_humidity = y["humidity"]
+
+
+    #print(x)
+ 
+    # store the value of "weather"
+    # key in variable z
+    z = x["weather"]
+ 
+    # store the value corresponding
+    # to the "description" key at
+    # the 0th index of z
+    weather_description = z[0]["description"]
+ 
+    # print following values
+    print(" Temperature (in kelvin unit) = " +
+                    str(current_temperature) +
+          "\n atmospheric pressure (in hPa unit) = " +
+                    str(current_pressure) +
+          "\n humidity (in percentage) = " +
+                    str(current_humidity) +
+          "\n description = " +
+                    str(weather_description) +
+          "\n CountryName = " +
+                    str(CountryN) +
+          "\n SunRise = " +
+                    str(Sunrise))
+ 
+ 
+else:
+    print(" City Not Found ")
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
