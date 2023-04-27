@@ -1,0 +1,166 @@
+2) Typescript:
+
+TypeScript is a free and open-source programming language developed by Microsoft that adds static typing with optional type annotations to JavaScript. It is designed for the development of large applications and transpiles to JavaScript.TypeScript is a free and open-source programming language developed by Microsoft that adds static typing with optional type annotations to JavaScript. It is designed for the development of large applications and transpiles to JavaScript.
+
+TypeScript allows you to create scalable web applications which are easy to implement. It is a strict superset of JavaScript. TypeScript can be utilized to create JavaScript applications for client-side or server-side execution. As TypeScript is a subset of JavaScript, it supports all the libraries of JavaScript.
+
+------------------------------------------------------------------------------
+
+	Small code snippets for programs like Hello World, Calculator using TypeScript.
+
+Code:
+
+const number1:number = parseFloat(prompt('Enter first number: '));
+const number2:number = parseFloat(prompt('Enter second number: '));
+const operator:string = prompt('Enter operator ( either +, -, * or / ): ');
+let result:number;
+if (operator == '+') {
+    result = number1 + number2;
+}
+else if (operator == '-') {
+    result = number1 - number2;
+}
+else if (operator == '*') {
+    result = number1 * number2;
+}
+else {
+    result = number1 / number2;
+}
+
+console.log(`${number1} ${operator} ${number2} = ${result}`);
+
+Index.html code
+
+<html>
+<body>
+<script src="calculator.js">
+</script>
+</body>
+</html>
+Run index.html on browser and provide the input.
+Output:In web console ,output will appear as 22+ 33 =55
+
+
+Inheritance:
+Inheritance is an aspect of OOPs languages, which provides the ability of a program to create a new class from an existing class. It is a mechanism which acquires the properties and behaviors of a class from another class. 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+3)
+AngularJS is a structural framework for dynamic web applications. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application components clearly and succinctly. Its data binding and dependency injection eliminate much of the code you currently have to write. And it all happens within the browser, making it an ideal partner with any server technology.
+AngularJS is a efficient framework that can create Rich Internet Applications (RIA).
+
+AngularJS is a JavaScript-based front-end web framework based on bidirectional UI data binding and is used to design Single Page Applications. Single Page Applications are web applications that load a single HTML page and only a part of the page instead of the entire page gets updated with every click of the mouse. The page does not reload or transfer control to another page during the process.
+
+AngularJS extends HTML with ng-directives.
+
+The ng-app directive defines an AngularJS application.
+
+The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.
+
+The ng-bind directive binds application data to the HTML view.
+
+Data-binding − It is the automatic synchronization of data between model and view components.
+Scope − These are objects that refer to the model. They act as a glue between controller and view.
+Controller − These are JavaScript functions bound to a particular scope.
+Services − AngularJS comes with several built-in services such as $http to make a XMLHttpRequests. These are singleton objects which are instantiated only once in app.
+Filters − These select a subset of items from an array and returns a ne array.
+Directives − Directives are markers on DOM elements such as elements, attributes, css, and more. These can be used to create custom HTML tags that serve as new, custom widgets. AngularJS has built-in directives such as ngBind, ngModel, etc.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+4) AJAX
+What is AJAX?
+AJAX = Asynchronous JavaScript And XML.
+
+AJAX is not a programming language.
+AJAX just uses a combination of:
+A browser built-in XMLHttpRequest object (to request data from a web server)
+JavaScript and HTML DOM (to display or use the data)
+
+AJAX stands for Asynchronous JavaScript and XML. AJAX is a new technique for creating better, faster, and more interactive web applications with the help of XML, HTML, CSS, and Java Script.
+
+
+working:
+User sends a request from the UI and a javascript call goes to XMLHttpRequest object.
+HTTP Request is sent to the server by XMLHttpRequest object.
+Server interacts with the database using JSP, PHP, Servlet, ASP.net etc.
+Data is retrieved.
+Server sends XML data or JSON data to the XMLHttpRequest callback function.
+HTML and CSS data is displayed on the browser.
+
+---------------------------------------------------------------------------------------------------------------------------------
+5)
+A REST API (also known as RESTful API) is an application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services. REST stands for representational state transfer and was created by computer scientist Roy Fielding.
+
+What's an API?
+An API is a set of definitions and protocols for building and integrating application software. It’s sometimes referred to as a contract between an information provider and an information user—establishing the content required from the consumer (the call) and the content required by the producer (the response). For example, the API design for a weather service could specify that the user supply a zip code and that the producer reply with a 2-part answer, the first being the high temperature, and the second being the low.  
+
+Monogdb:
+MongoDB is a source-available cross-platform document-oriented database program. 
+MongoDB stores data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+6)
+
+Flask is a web framework, it’s a Python module that lets you develop web applications easily. It’s has a small and easy-to-extend core: it’s a microframework that doesn’t include an ORM (Object Relational Manager) or such features
+What is Flask?
+Flask is a web application framework written in Python. It was developed by Armin Ronacher, who led a team of international Python enthusiasts called Poocco. Flask is based on the Werkzeg WSGI toolkit and the Jinja2 template engine.
+
+advantage:
+scalabe
+flexible
+easy to use 
+light weight
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+RIA
+A rich web application is a web application that has many of the characteristics of desktop application software. The concept is closely related to a single-page application, and may allow the user interactive features such as drag and drop, background menu, WYSIWYG editing, etc
+
+characteristic:
+
+Direct Interaction
+Partialpage updating
+better feedback
+consistency of look and feel
+offline use
+performance impact
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Advantages of Single Page Application:
+
+Team collaboration: Single-page applications are excellent when more than one developer is working on the same project. It allows backend developers to focus on the API, while frontend developers can focus on creating the user interface based on the backend API.
+
+Caching: The application sends a single request to the server and stores all the received information in the cache. This proves beneficial when the client has poor network connectivity.
+
+Fast and responsive: As only parts of the pages are loaded dynamically, it improves the website’s speed.
+
+Debugging is easier: Debugging single-page applications with chrome is easier since such applications are developed using AngularJS Batarang and React developer tools.
+
+Linear user experience: Browsing or navigating through the website is easy.
+Disadvantages of Single Page Application:
+
+SEO optimization: SPAs provide poor SEO optimization. This is because single-page applications operate on JavaScript and load data at once server. The URL does not change and different pages do not have a unique URL. Hence it is hard for the search engines to index the SPA website as opposed to traditional server-rendered pages.
+
+Browser history: A SPA does not save the users’ transition of states within the website. A browser saves the previous pages only, not the state transition. Thus when users click the back button, they are not redirected to the previous state of the website. To solve this problem, developers can equip their SPA frameworks with the HTML5 History API.
+
+Security issues: Single-page apps are less immune to cross-site scripting (XSS) and since no new pages are loaded, hackers can easily gain access to the website and inject new scripts on the client-side.
+
+Memory Consumption: Since the SPA can run for a long time sometimes hours at a time, one needs to make sure the application does not consume more memory than it needs. Else, users with low-memory devices may face serious performance issues.
+
+Disabled Javascript: Developers need to chalk out ideas for users to access the information on the website for browsers that have Javascript disabled.
+
+
+
+
+
+
+
+
